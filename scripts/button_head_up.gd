@@ -1,10 +1,11 @@
 extends Button
 
-var head_number = 0
+
 
 func _on_pressed() -> void:
-	head_number += 1
+	var orig_transform = get_node("%Node3D").scale
+	Globals.head_number += 1
+	get_node("%Node3D").scale.x*=Globals.head_number/(Globals.head_number-1)
+	print(Globals.head_number/(Globals.head_number-1))
 
-	var wow = get_node("%Node3D")
-	wow.scale.x*=head_number
-	print(wow.transform)
+	
