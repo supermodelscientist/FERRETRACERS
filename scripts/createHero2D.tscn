@@ -24,6 +24,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 20.0
 
 [node name="ViewportSprite" type="Sprite2D" parent="VBoxContainer/Container_Spacer"]
+unique_name_in_owner = true
 position = Vector2(574, 200)
 texture = SubResource("ViewportTexture_0o3m2")
 
@@ -73,7 +74,7 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_stretch_ratio = 5.25
 
-[node name="Button_Create2" type="Button" parent="VBoxContainer"]
+[node name="Button_Randomize" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Randomise"
 
