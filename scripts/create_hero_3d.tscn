@@ -151,6 +151,7 @@ _data = {
 [node name="Node3D" type="Node3D"]
 
 [node name="Mustelid V1" parent="." instance=ExtResource("1_k036i")]
+unique_name_in_owner = true
 transform = Transform3D(1.05, 0, 4.46638e-06, 0, 0.95, 0, -4.6897e-06, 0, 1, 0, 0, 0)
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="Mustelid V1"]
