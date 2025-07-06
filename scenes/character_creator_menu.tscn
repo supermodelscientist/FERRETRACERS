@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://cbna21b3tinrv"]
 
-[ext_resource type="Script" uid="uid://d0mh5heeuodqh" path="res://scripts/button_head_down.gd" id="1_e0xym"]
-[ext_resource type="PackedScene" uid="uid://b11e3fnvfq0tv" path="res://scripts/create_hero_3d.tscn" id="1_tky61"]
-[ext_resource type="Script" uid="uid://bijr6ap02gr6t" path="res://scripts/button_head_up.gd" id="2_e0xym"]
+[ext_resource type="Script" uid="uid://d0mh5heeuodqh" path="res://scripts/button_head_down.gd" id="1_k7wyv"]
+[ext_resource type="Script" uid="uid://bijr6ap02gr6t" path="res://scripts/button_head_up.gd" id="2_febo8"]
+[ext_resource type="PackedScene" uid="uid://b11e3fnvfq0tv" path="res://scenes/character_creator_3d.tscn" id="3_kk4rh"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_0o3m2"]
 viewport_path = NodePath("VBoxContainer/SubViewport")
@@ -40,12 +40,12 @@ theme_override_constants/separation = 20
 [node name="button_head_down" type="Button" parent="VBoxContainer/head_button_container"]
 layout_mode = 2
 text = "<"
-script = ExtResource("1_e0xym")
+script = ExtResource("1_k7wyv")
 
 [node name="button_head_up" type="Button" parent="VBoxContainer/head_button_container"]
 layout_mode = 2
 text = ">"
-script = ExtResource("2_e0xym")
+script = ExtResource("2_febo8")
 
 [node name="tail_label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
@@ -85,7 +85,7 @@ text = "Create!"
 [node name="SubViewport" type="SubViewport" parent="VBoxContainer"]
 size = Vector2i(500, 300)
 
-[node name="Node3D" parent="VBoxContainer/SubViewport" instance=ExtResource("1_tky61")]
+[node name="Node3D" parent="VBoxContainer/SubViewport" instance=ExtResource("3_kk4rh")]
 unique_name_in_owner = true
 
 [connection signal="button_down" from="VBoxContainer/head_button_container/button_head_down" to="VBoxContainer/head_button_container/button_head_down" method="_on_button_down"]
