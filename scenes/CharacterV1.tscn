@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://boo0u458322ry"]
+
+[ext_resource type="PackedScene" uid="uid://b477qyma5sogj" path="res://assets/CharacterV1.glb" id="1_7jun8"]
+
+[node name="CharacterV1" instance=ExtResource("1_7jun8")]
+
+[node name="DEF_Character" parent="." index="0"]
+unique_name_in_owner = true
+
+[node name="Head0" parent="DEF_Character/Skeleton3D" index="1"]
+unique_name_in_owner = true
+
+[node name="Head1" parent="DEF_Character/Skeleton3D" index="2"]
+unique_name_in_owner = true

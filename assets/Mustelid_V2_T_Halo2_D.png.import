@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://bu4gox2pfdjl1"
+path.s3tc="res://.godot/imported/Mustelid_V2_T_Halo2_D.png-e051d20482887e26bdd496fd4ea3c4a7.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "d6b7264f537eedbdcac358bff4e67fca"
+}
+
+[deps]
+
+source_file="res://assets/Mustelid_V2_T_Halo2_D.png"
+dest_files=["res://.godot/imported/Mustelid_V2_T_Halo2_D.png-e051d20482887e26bdd496fd4ea3c4a7.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

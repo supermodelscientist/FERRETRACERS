@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b11e3fnvfq0tv"]
 
-[ext_resource type="PackedScene" uid="uid://c46ddqjch7mpt" path="res://assets/Mustelid V1.glb" id="1_k036i"]
+[ext_resource type="PackedScene" uid="uid://boo0u458322ry" path="res://scenes/CharacterV1.tscn" id="1_8asu0"]
 
 [sub_resource type="Animation" id="Animation_nksar"]
 length = 0.001
@@ -73,6 +73,7 @@ tracks/5/keys = {
 
 [sub_resource type="Animation" id="Animation_k036i"]
 resource_name = "new_animation"
+length = 2.0
 loop_mode = 1
 step = 0.0416667
 tracks/0/type = "bezier"
@@ -84,7 +85,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1)
+"times": PackedFloat32Array(0, 2)
 }
 tracks/1/type = "bezier"
 tracks/1/imported = false
@@ -93,9 +94,9 @@ tracks/1/path = NodePath(".:rotation:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"handle_modes": PackedInt32Array(1, 1),
+"handle_modes": PackedInt32Array(1, 0),
 "points": PackedFloat32Array(0, 0, 0, 0, 0, 6.28319, 0, 0, 0, 0),
-"times": PackedFloat32Array(0, 1)
+"times": PackedFloat32Array(0, 2)
 }
 tracks/2/type = "bezier"
 tracks/2/imported = false
@@ -106,7 +107,7 @@ tracks/2/loop_wrap = true
 tracks/2/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1)
+"times": PackedFloat32Array(0, 2)
 }
 tracks/3/type = "bezier"
 tracks/3/imported = false
@@ -117,7 +118,7 @@ tracks/3/loop_wrap = true
 tracks/3/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
 "points": PackedFloat32Array(1.05, -0.25, 0, 0.25, 0, 0.95, -0.25, 0, 0.25, 0, 1.05, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5, 1)
+"times": PackedFloat32Array(0, 1, 2)
 }
 tracks/4/type = "bezier"
 tracks/4/imported = false
@@ -128,7 +129,7 @@ tracks/4/loop_wrap = true
 tracks/4/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
 "points": PackedFloat32Array(0.95, -0.25, 0, 0.25, 0, 1.05, -0.25, 0, 0.25, 0, 0.95, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5, 1)
+"times": PackedFloat32Array(0, 1, 2)
 }
 tracks/5/type = "bezier"
 tracks/5/imported = false
@@ -139,7 +140,7 @@ tracks/5/loop_wrap = true
 tracks/5/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
 "points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5, 1)
+"times": PackedFloat32Array(0, 1, 2)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oxuan"]
@@ -149,17 +150,18 @@ _data = {
 }
 
 [node name="Node3D" type="Node3D"]
-
-[node name="Mustelid V1" parent="." instance=ExtResource("1_k036i")]
-unique_name_in_owner = true
-transform = Transform3D(1.05, 0, 4.46638e-06, 0, 0.95, 0, -4.6897e-06, 0, 1, 0, 0, 0)
-
-[node name="AnimationPlayer2" type="AnimationPlayer" parent="Mustelid V1"]
-libraries = {
-&"": SubResource("AnimationLibrary_oxuan")
-}
-autoplay = "new_animation"
+transform = Transform3D(1.05, 0, 0, 0, 0.95, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.897828, 0.440347, 0, -0.440347, 0.897828, 0, 1.80907, 1.85131)
 fov = 49.9264
+
+[node name="CharacterV1" parent="." instance=ExtResource("1_8asu0")]
+unique_name_in_owner = true
+transform = Transform3D(1.05, 0, 4.46638e-06, 0, 0.95, 0, -4.6897e-06, 0, 1, 0, 0, 0)
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="CharacterV1"]
+libraries = {
+&"": SubResource("AnimationLibrary_oxuan")
+}
+autoplay = "new_animation"

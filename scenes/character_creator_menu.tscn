@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cbna21b3tinrv"]
+[gd_scene load_steps=7 format=3 uid="uid://cbna21b3tinrv"]
 
-[ext_resource type="Script" uid="uid://d0mh5heeuodqh" path="res://scripts/button_head_down.gd" id="1_k7wyv"]
-[ext_resource type="Script" uid="uid://bijr6ap02gr6t" path="res://scripts/button_head_up.gd" id="2_febo8"]
+[ext_resource type="Script" uid="uid://d0mh5heeuodqh" path="res://scripts/button_scale_down.gd" id="1_k7wyv"]
+[ext_resource type="Script" uid="uid://bijr6ap02gr6t" path="res://scripts/button_scale_up.gd" id="2_febo8"]
+[ext_resource type="Script" uid="uid://buphwktxgm20a" path="res://scripts/button_head_number_down.gd" id="3_febo8"]
 [ext_resource type="PackedScene" uid="uid://b11e3fnvfq0tv" path="res://scenes/character_creator_3d.tscn" id="3_kk4rh"]
+[ext_resource type="Script" uid="uid://d4bn8405vsk5s" path="res://scripts/button_head_number_up.gd" id="4_kk4rh"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_0o3m2"]
 viewport_path = NodePath("VBoxContainer/SubViewport")
@@ -28,24 +30,45 @@ unique_name_in_owner = true
 position = Vector2(574, 200)
 texture = SubResource("ViewportTexture_0o3m2")
 
-[node name="head_label" type="Label" parent="VBoxContainer"]
+[node name="head_width_label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+text = "Head Width"
 horizontal_alignment = 1
 
-[node name="head_button_container" type="HBoxContainer" parent="VBoxContainer"]
+[node name="scale_head_buttons" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 20
 
-[node name="button_head_down" type="Button" parent="VBoxContainer/head_button_container"]
+[node name="SCALE_DOWN" type="Button" parent="VBoxContainer/scale_head_buttons"]
 layout_mode = 2
 text = "<"
 script = ExtResource("1_k7wyv")
 
-[node name="button_head_up" type="Button" parent="VBoxContainer/head_button_container"]
+[node name="SCALE_UP" type="Button" parent="VBoxContainer/scale_head_buttons"]
 layout_mode = 2
 text = ">"
 script = ExtResource("2_febo8")
+
+[node name="head_number_label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Head Number"
+horizontal_alignment = 1
+
+[node name="head_number_buttons" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+
+[node name="NUMBER_DOWN" type="Button" parent="VBoxContainer/head_number_buttons"]
+layout_mode = 2
+text = "<"
+script = ExtResource("3_febo8")
+
+[node name="NUMBER_UP" type="Button" parent="VBoxContainer/head_number_buttons"]
+layout_mode = 2
+text = ">"
+script = ExtResource("4_kk4rh")
 
 [node name="tail_label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
@@ -88,5 +111,7 @@ size = Vector2i(500, 300)
 [node name="Node3D" parent="VBoxContainer/SubViewport" instance=ExtResource("3_kk4rh")]
 unique_name_in_owner = true
 
-[connection signal="button_down" from="VBoxContainer/head_button_container/button_head_down" to="VBoxContainer/head_button_container/button_head_down" method="_on_button_down"]
-[connection signal="pressed" from="VBoxContainer/head_button_container/button_head_up" to="VBoxContainer/head_button_container/button_head_up" method="_on_pressed"]
+[connection signal="button_down" from="VBoxContainer/scale_head_buttons/SCALE_DOWN" to="VBoxContainer/scale_head_buttons/SCALE_DOWN" method="_on_button_down"]
+[connection signal="pressed" from="VBoxContainer/scale_head_buttons/SCALE_UP" to="VBoxContainer/scale_head_buttons/SCALE_UP" method="_on_pressed"]
+[connection signal="button_down" from="VBoxContainer/head_number_buttons/NUMBER_DOWN" to="VBoxContainer/head_number_buttons/NUMBER_DOWN" method="_on_button_down"]
+[connection signal="button_down" from="VBoxContainer/head_number_buttons/NUMBER_UP" to="VBoxContainer/head_number_buttons/NUMBER_UP" method="_on_button_down"]
