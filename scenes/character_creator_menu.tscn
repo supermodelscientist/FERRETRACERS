@@ -118,7 +118,7 @@ size = Vector2i(500, 300)
 unique_name_in_owner = true
 
 [connection signal="button_down" from="VBoxContainer/scale_head_buttons/SCALE_DOWN" to="VBoxContainer/scale_head_buttons/SCALE_DOWN" method="_on_button_down"]
-[connection signal="pressed" from="VBoxContainer/scale_head_buttons/SCALE_UP" to="VBoxContainer/scale_head_buttons/SCALE_UP" method="_on_pressed"]
+[connection signal="button_down" from="VBoxContainer/scale_head_buttons/SCALE_UP" to="VBoxContainer/scale_head_buttons/SCALE_UP" method="_on_button_down"]
 [connection signal="button_down" from="VBoxContainer/head_number_buttons/NUMBER_DOWN" to="VBoxContainer/head_number_buttons/NUMBER_DOWN" method="_on_button_down"]
 [connection signal="button_down" from="VBoxContainer/head_number_buttons/NUMBER_UP" to="VBoxContainer/head_number_buttons/NUMBER_UP" method="_on_button_down"]
 [connection signal="value_changed" from="VBoxContainer/HSlider" to="VBoxContainer/HSlider" method="_on_value_changed"]

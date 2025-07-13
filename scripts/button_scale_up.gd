@@ -1,18 +1,13 @@
 extends Button
 
-
-func _on_pressed() -> void:
-	#var orig_transform = get_node("%Node3D").scale
-	## Decrease the value of head_width
-	#
-	#Globals.head_width -= 1.0
-	#
-	## This part of the function applies to both the up and down scripts
-	#
-	#if Globals.head_width<1:
-		#Globals.head_width = 1.0/(2-Globals.head_width)
-	#if Globals.head_width==1:
-		#Globals.dive.scale.x*=2.0
-	#else:
-		#Globals.dive.scale.x*=Globals.head_width/(Globals.head_width-1.0)
-	pass
+func _on_button_down() -> void:
+	var dive = get_node("%Node3D").get_node("%CharacterV1").get_node("%DEF_Character/Skeleton3D/Head0")
+	
+	var orig_transform = get_node("%Node3D").scale
+	
+	if dive.scale.x <= 0:
+		dive.scale.x = 1
+		print(dive.scale.x)
+	else:
+		dive.scale.x +=1
+		print(dive.scale.x)
