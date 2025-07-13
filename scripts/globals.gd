@@ -12,6 +12,10 @@ var head_index = 0
 
 var body_hue = 0
 
+var body_saturation = 0
+
+var body_value = 0
+
 # This one doesn't seem to work unfortunately, i need to put it back
 
 # var dive = get_node("%Node3D").get_node("%Mustelid V1").get_node("Empty/DEF_Halo2/Skeleton3D/Head1")
