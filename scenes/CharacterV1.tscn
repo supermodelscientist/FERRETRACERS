@@ -1,11 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://boo0u458322ry"]
+[gd_scene load_steps=4 format=3 uid="uid://boo0u458322ry"]
 
 [ext_resource type="PackedScene" uid="uid://b477qyma5sogj" path="res://assets/CharacterV1.glb" id="1_7jun8"]
+[ext_resource type="Material" uid="uid://bfgagogb3rmrr" path="res://M_Character.tres" id="2_ctrei"]
+[ext_resource type="Script" uid="uid://cct11fn4ldi7s" path="res://scripts/body.gd" id="3_ctrei"]
 
 [node name="CharacterV1" instance=ExtResource("1_7jun8")]
 
 [node name="DEF_Character" parent="." index="0"]
 unique_name_in_owner = true
+
+[node name="Body" parent="DEF_Character/Skeleton3D" index="0"]
+unique_name_in_owner = true
+surface_material_override/0 = ExtResource("2_ctrei")
+script = ExtResource("3_ctrei")
 
 [node name="Head0" parent="DEF_Character/Skeleton3D" index="1"]
 unique_name_in_owner = true

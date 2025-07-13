@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://cbna21b3tinrv"]
+[gd_scene load_steps=9 format=3 uid="uid://cbna21b3tinrv"]
 
+[ext_resource type="Script" uid="uid://bap2hhgy0sl56" path="res://scenes/viewport_sprite.gd" id="1_gyr6w"]
 [ext_resource type="Script" uid="uid://d0mh5heeuodqh" path="res://scripts/button_scale_down.gd" id="1_k7wyv"]
 [ext_resource type="Script" uid="uid://bijr6ap02gr6t" path="res://scripts/button_scale_up.gd" id="2_febo8"]
 [ext_resource type="Script" uid="uid://buphwktxgm20a" path="res://scripts/button_head_number_down.gd" id="3_febo8"]
 [ext_resource type="PackedScene" uid="uid://b11e3fnvfq0tv" path="res://scenes/character_creator_3d.tscn" id="3_kk4rh"]
 [ext_resource type="Script" uid="uid://d4bn8405vsk5s" path="res://scripts/button_head_number_up.gd" id="4_kk4rh"]
+[ext_resource type="Script" uid="uid://4yjdot7mp0oy" path="res://scenes/hue_slider.gd" id="5_f5u3c"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_0o3m2"]
 viewport_path = NodePath("VBoxContainer/SubViewport")
@@ -29,6 +31,7 @@ size_flags_stretch_ratio = 20.0
 unique_name_in_owner = true
 position = Vector2(574, 200)
 texture = SubResource("ViewportTexture_0o3m2")
+script = ExtResource("1_gyr6w")
 
 [node name="head_width_label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
@@ -96,6 +99,9 @@ horizontal_alignment = 1
 [node name="HSlider" type="HSlider" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_stretch_ratio = 5.25
+max_value = 1.0
+step = 0.0
+script = ExtResource("5_f5u3c")
 
 [node name="Button_Randomize" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -115,3 +121,4 @@ unique_name_in_owner = true
 [connection signal="pressed" from="VBoxContainer/scale_head_buttons/SCALE_UP" to="VBoxContainer/scale_head_buttons/SCALE_UP" method="_on_pressed"]
 [connection signal="button_down" from="VBoxContainer/head_number_buttons/NUMBER_DOWN" to="VBoxContainer/head_number_buttons/NUMBER_DOWN" method="_on_button_down"]
 [connection signal="button_down" from="VBoxContainer/head_number_buttons/NUMBER_UP" to="VBoxContainer/head_number_buttons/NUMBER_UP" method="_on_button_down"]
+[connection signal="value_changed" from="VBoxContainer/HSlider" to="VBoxContainer/HSlider" method="_on_value_changed"]

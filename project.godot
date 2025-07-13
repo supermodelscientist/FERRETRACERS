@@ -18,6 +18,8 @@ config/icon="res://assets/icon.svg"
 [autoload]
 
 Globals="*res://scripts/globals.gd"
+M_Character="*res://M_Character.tres"
+Body="*res://scripts/body.gd"
 
 [editor]
 
