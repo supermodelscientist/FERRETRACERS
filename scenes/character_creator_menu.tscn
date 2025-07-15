@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://cbna21b3tinrv"]
+[gd_scene load_steps=13 format=3 uid="uid://cbna21b3tinrv"]
 
+[ext_resource type="Shader" uid="uid://bp0negxouo2dh" path="res://scenes/CRT_Filter.gdshader" id="1_4w3sx"]
 [ext_resource type="Script" uid="uid://bap2hhgy0sl56" path="res://scripts/viewport_sprite.gd" id="1_gyr6w"]
 [ext_resource type="Script" uid="uid://d0mh5heeuodqh" path="res://scripts/button_scale_down.gd" id="1_k7wyv"]
 [ext_resource type="Script" uid="uid://bijr6ap02gr6t" path="res://scripts/button_scale_up.gd" id="2_febo8"]
@@ -10,10 +11,45 @@
 [ext_resource type="Script" uid="uid://djymlljj2rkpo" path="res://scripts/saturation_slider.gd" id="7_o6flm"]
 [ext_resource type="Script" uid="uid://c0wpnmcqmbgqf" path="res://scripts/value_slider.gd" id="8_1gpy2"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w0bwd"]
+shader = ExtResource("1_4w3sx")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.4
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.3
+shader_parameter/resolution = Vector2(320, 180)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.03
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.05
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.3
+shader_parameter/vignette_opacity = 0.5
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_0o3m2"]
 viewport_path = NodePath("VBoxContainer/SubViewport")
 
 [node name="Node2D" type="Node2D"]
+
+[node name="CRT Filter" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="ColorRect" type="ColorRect" parent="CRT Filter"]
+material = SubResource("ShaderMaterial_w0bwd")
+offset_right = 1150.0
+offset_bottom = 650.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 offset_right = 1152.0
