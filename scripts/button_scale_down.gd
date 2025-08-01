@@ -1,5 +1,8 @@
 extends Button
 
+func _on_ready() -> void:
+	grab_focus()
+
 func _on_button_down() -> void:
 	var dive = get_node("%Node3D").get_node("%CharacterV1").get_node("%DEF_Character/Skeleton3D/Head0")
 	
