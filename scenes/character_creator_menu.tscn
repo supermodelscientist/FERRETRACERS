@@ -1,39 +1,16 @@
 [gd_scene load_steps=13 format=3 uid="uid://cbna21b3tinrv"]
 
-[ext_resource type="Shader" uid="uid://bp0negxouo2dh" path="res://scenes/CRT_Filter.gdshader" id="1_4w3sx"]
+[ext_resource type="Material" uid="uid://bymymtevscmxr" path="res://Shaders/CRT_Filter.tres" id="1_4w3sx"]
 [ext_resource type="Script" uid="uid://bap2hhgy0sl56" path="res://scripts/viewport_sprite.gd" id="1_gyr6w"]
 [ext_resource type="Script" uid="uid://d0mh5heeuodqh" path="res://scripts/button_scale_down.gd" id="1_k7wyv"]
 [ext_resource type="Script" uid="uid://bijr6ap02gr6t" path="res://scripts/button_scale_up.gd" id="2_febo8"]
 [ext_resource type="Script" uid="uid://buphwktxgm20a" path="res://scripts/button_head_number_down.gd" id="3_febo8"]
 [ext_resource type="PackedScene" uid="uid://b11e3fnvfq0tv" path="res://scenes/character_creator_3d.tscn" id="3_kk4rh"]
+[ext_resource type="LabelSettings" uid="uid://ccxom5j1v338y" path="res://Shaders/Character_Creator_Fonts.tres" id="3_w0bwd"]
 [ext_resource type="Script" uid="uid://d4bn8405vsk5s" path="res://scripts/button_head_number_up.gd" id="4_kk4rh"]
 [ext_resource type="Script" uid="uid://4yjdot7mp0oy" path="res://scripts/hue_slider.gd" id="5_f5u3c"]
 [ext_resource type="Script" uid="uid://djymlljj2rkpo" path="res://scripts/saturation_slider.gd" id="7_o6flm"]
 [ext_resource type="Script" uid="uid://c0wpnmcqmbgqf" path="res://scripts/value_slider.gd" id="8_1gpy2"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_w0bwd"]
-shader = ExtResource("1_4w3sx")
-shader_parameter/overlay = false
-shader_parameter/scanlines_opacity = 0.4
-shader_parameter/scanlines_width = 0.25
-shader_parameter/grille_opacity = 0.3
-shader_parameter/resolution = Vector2(320, 180)
-shader_parameter/pixelate = true
-shader_parameter/roll = true
-shader_parameter/roll_speed = 8.0
-shader_parameter/roll_size = 15.0
-shader_parameter/roll_variation = 1.8
-shader_parameter/distort_intensity = 0.05
-shader_parameter/noise_opacity = 0.4
-shader_parameter/noise_speed = 5.0
-shader_parameter/static_noise_intensity = 0.06
-shader_parameter/aberration = 0.03
-shader_parameter/brightness = 1.4
-shader_parameter/discolor = true
-shader_parameter/warp_amount = 0.05
-shader_parameter/clip_warp = false
-shader_parameter/vignette_intensity = 0.3
-shader_parameter/vignette_opacity = 0.5
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_0o3m2"]
 viewport_path = NodePath("VBoxContainer/SubViewport")
@@ -44,16 +21,28 @@ viewport_path = NodePath("VBoxContainer/SubViewport")
 follow_viewport_enabled = true
 
 [node name="ColorRect" type="ColorRect" parent="CRT Filter"]
-material = SubResource("ShaderMaterial_w0bwd")
-offset_right = 1150.0
-offset_bottom = 650.0
+material = ExtResource("1_4w3sx")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -720.0
+offset_top = -540.0
+offset_right = 720.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.05, 1.05)
+pivot_offset = Vector2(720, 540)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_right = 720.0
+offset_bottom = 540.0
+scale = Vector2(2, 2)
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
@@ -67,18 +56,19 @@ size_flags_stretch_ratio = 20.0
 
 [node name="ViewportSprite" type="Sprite2D" parent="VBoxContainer/Container_Spacer"]
 unique_name_in_owner = true
-position = Vector2(258, 235)
+position = Vector2(573, 206)
+scale = Vector2(1.34667, 1.34667)
 texture = SubResource("ViewportTexture_0o3m2")
 script = ExtResource("1_gyr6w")
 
 [node name="head_width_label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "Head Width"
-horizontal_alignment = 1
+label_settings = ExtResource("3_w0bwd")
 
 [node name="scale_head_buttons" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 0
 theme_override_constants/separation = 20
 
 [node name="SCALE_DOWN" type="Button" parent="VBoxContainer/scale_head_buttons"]
@@ -94,11 +84,11 @@ script = ExtResource("2_febo8")
 [node name="head_number_label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "Head Number"
-horizontal_alignment = 1
+label_settings = ExtResource("3_w0bwd")
 
 [node name="head_number_buttons" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 0
 theme_override_constants/separation = 20
 
 [node name="NUMBER_DOWN" type="Button" parent="VBoxContainer/head_number_buttons"]
@@ -114,11 +104,11 @@ script = ExtResource("4_kk4rh")
 [node name="tail_label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "Tail"
-horizontal_alignment = 1
+label_settings = ExtResource("3_w0bwd")
 
 [node name="tail_button_container" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 0
 theme_override_constants/separation = 20
 
 [node name="button_tail_dwn" type="Button" parent="VBoxContainer/tail_button_container"]
